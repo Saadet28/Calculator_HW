@@ -52,13 +52,34 @@ void twoVar (char c)
     findPower(a,b);
 }
 
+double loop ()
+{
+    char c;
+    double nr, sum=0;
+    int cnt=0;
+    while(c!='!')
+    {
+        scanf("%lf%c",&nr,&c);
+        sum+=nr;
+        cnt++;
+    }
+    double average=sum/cnt;
+    return average;
+}
+
 int main() {
     char c;
-    printf("Enter operation (Enter 0 for square root). Enter 'a' to find the average of numbers.\n");
+    printf("Enter operation (Enter 0 for square root). Enter 'a' to find the average of numbers. Enter 'a' to find the average of the numbers you enter.\n");
     scanf("%c",&c);
     if(c=='0')
     {
         findSquareRoot();
+    }
+    else if(c=='a')
+    {
+        printf("Enter '!' to indicate the end of sequence.\n");
+        double avg=loop();
+        printf("%.2lf",avg);
     }
     else
     {
